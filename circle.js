@@ -1,36 +1,37 @@
-;( function( d3 ) {
+;(function(d3) {
   var svg = d3.select( 'svg' ),
-      // svg         = d3container.append( 'svg' ),
-      dots        = svg.append( 'g' );
+      dots = svg.append( 'g' );
   
   circle();
-  white();
+  small();
 
   function circle() {
-    dots.append( 'circle' )
-        .attr( 'r', 0 )
-        .attr( 'cx',  150 )
-        .attr( 'cy', 25 )
-        .attr( 'fill', '#ffff66')
-        .transition()
-        .delay( 200)
-        .attr( 'r', 30 );
+    dots.append('circle')
+      .attr('r',0)
+      .attr('cx',25)
+      .attr('cy',25)
+      .attr('filter', 'url(#blurMe)')
+      .attr('fill', '#ffff66')
+      .transition()
+      .delay(300)
+      .attr('r', 30);
   }
 
   function yellow() {
     d3.selectAll('circle')
-    .transition()
-    .delay( 1000)
-    .attr('fill', '#ffff66')
-    .each("end", white);
+      .transition()
+      .delay(300)
+      .attr('r', 30)
+      .attr('fill', '#ffff66')
+      .each("end", small);
   }
 
-  function white() {
+  function small() {
     d3.selectAll('circle')
       .transition()
-      .delay(1000)
-      .attr('fill', '#ffffff')
+      .delay(300)
+      .attr('r', 10)
       .each("end", yellow);
   }
 
-} )( d3 );
+} )(d3);
