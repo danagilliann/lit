@@ -24,7 +24,11 @@ var T = new Twit({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+<<<<<<< HEAD
   res.render('index');
+=======
+	res.render('index', { title: 'Express' });
+>>>>>>> 8e67bf49846c2e5f4c77d2301b905057c60487f8
 });
 
 io.sockets.on('connection', function(socket) {
@@ -80,3 +84,4 @@ io.sockets.on('connection', function(socket) {
 
 
 module.exports = router;
+
