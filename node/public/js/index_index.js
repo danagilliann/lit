@@ -9,6 +9,7 @@ var config = {
 navigator.geolocation.getCurrentPosition(function(data) {
  var lat = data['coords']['latitude'];
  var lng = data['coords']['longitude'];
+
  if (document.getElementById('googleMap')){
    // Coordinates to center the map
    var myLatlng = new google.maps.LatLng(lat,lng);
@@ -43,5 +44,4 @@ navigator.geolocation.getCurrentPosition(function(data) {
   
  }
 });
-
 
