@@ -17,7 +17,9 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "http": "0.0.0",
     "request": "^2.69.0",
+    "socket.io": "^1.4.5",
     "twit": "^2.2.3"
   }
 }
