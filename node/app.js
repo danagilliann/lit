@@ -1,3 +1,4 @@
+var http = require('http');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,10 +7,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 /* add db.js file  to*/
 var db = require('./model/db');
-var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
+
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);  //pass a http.Server instance
+app.io = io;
+
+var routes = require('./routes/index')(io);
+var users = require('./routes/users');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
