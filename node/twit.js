@@ -10,12 +10,10 @@ var T = new Twit({
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
-app.get('/', function(req, res) {
-  var stream = T.stream("statuses/filter", { track: 'swarmapp.com', language: 'en'});
+  var stream = T.stream("statuses/filter", { track: 'swarmapp', language: 'en'});
   stream.on('message', function(msg) {
-    res.send(msg);
+    msg.entities.urls[0].display_url;
   });
-});
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
