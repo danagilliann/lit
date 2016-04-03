@@ -1,8 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00B7FF;
+#googleMap {
+  width: 100%;
+  height: 90%;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: black;
+  margin-bottom: -0.65em;
+  padding: 1em;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font: 100% 'Inconsolata', Sans-Serif;
 }

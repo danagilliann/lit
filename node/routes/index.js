@@ -8,7 +8,10 @@ var swarmUrl,
     venueId,
     lng,
     lat,
+    city,
     stream;
+
+var token = "1N5UGBL211K2VR5T2AFW0J0V4H5UWZPOUO4BFLPTSP1ENWPZ";
 
 module.exports = function (io) {
   var T = new Twit({
@@ -40,23 +43,31 @@ module.exports = function (io) {
     
         if (swarmUrl !== undefined) {
           // swarm request
-          var foursquareRequest = "https://api.foursquare.com/v2/checkins/resolve?shortId=" + swarmUrl +"&oauth_token=1N5UGBL211K2VR5T2AFW0J0V4H5UWZPOUO4BFLPTSP1ENWPZ&v=20160402";
+          var foursquareRequest = "https://api.foursquare.com/v2/checkins/resolve?shortId=" + swarmUrl +"&oauth_token=" + token + "&v=20160402";
     
           request({
             url: foursquareRequest,
             json: true
           }, function (error, response, body) {
-          
             if (!error && response.statusCode === 200) {
-              console.log()
+              // console.log()
               lat = body.response.checkin.venue.location.lat;
               lng = body.response.checkin.venue.location.lng;
-              console.log(lat + ", " + lng); // Print the json response
+              city = body.response.checkin.venue.location.city;
+              cc = body.response.checkin.venue.location.cc;
+              // if (city === "New York" && cc === "USA") {
+              //   console.log(city);
+              //   console.log(lat + ", " + lng); // Print the json response
+              // }
+              // console.log(lat + ", " + lng);
             }
           });
         }
       }
-      socket.emit('stream', {lat: lat, lng: lng});
+      // if (city === "New York" && city === "USA") {
+      //   socket.emit('stream', {lat: lat, lng: lng});
+      // }
+      // socket.emit('stream', {lat: lat, lng: lng});
     });
     
     stream.on('error', function(err) {
