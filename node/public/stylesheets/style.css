@@ -22,10 +22,9 @@ button {
 
 button.about {
   position: absolute;
-  z-index: 10000;
+  z-index: 1;
   float: right;
   right: 2%;
-  z-index: 10000;
   padding: 0.7em 2em;
   font: 13px "Inconsolata", "Sans-Serif";
   margin-top: -0.5em
@@ -75,8 +74,17 @@ p {
   text-align: center;
 }
 
+p.content {
+  color: black;
+}
+
 .modal-content {
   background-color: black;
+  border-radius: 0px;
+}
+
+.modal-header {
+  border-bottom: none;
 }
 
 .modal {

@@ -9,9 +9,11 @@ var swarmUrl,
     lng,
     lat,
     city,
-    stream;
+    stream,
+    venueName,
+    address;
 
-var token = "FLEMNTIHO1BBZ4XJ3N52MH0WDV2D5SAJPVMCZ0TEHYX5VKGH";
+var token = "1N5UGBL211K2VR5T2AFW0J0V4H5UWZPOUO4BFLPTSP1ENWPZ";
 
 module.exports = function (io) {
   var T = new Twit({
@@ -55,6 +57,8 @@ module.exports = function (io) {
               lng = body.response.checkin.venue.location.lng;
               city = body.response.checkin.venue.location.city;
               cc = body.response.checkin.venue.location.cc;
+              venueName = body.response.checkin.venue.name;
+              address = body.response.checkin.venue.location.formattedAddress;
               // if (city === "New York" && cc === "USA") {
               //   console.log(city);
               //   console.log(lat + ", " + lng); // Print the json response
@@ -67,7 +71,12 @@ module.exports = function (io) {
       // if (city === "New York" && city === "USA") {
       //   socket.emit('stream', {lat: lat, lng: lng});
       // }
-      socket.emit('stream', {lat: lat, lng: lng});
+    socket.emit('stream', {
+        lat: lat,
+        lng: lng, 
+        venueName: venueName,
+        address: address
+      });
     });
     
     stream.on('error', function(err) {

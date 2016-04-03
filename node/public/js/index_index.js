@@ -15,7 +15,7 @@ navigator.geolocation.getCurrentPosition(function(data) {
    var myLatlng = new google.maps.LatLng(lat,lng);
    // Other options for the map, pretty much selfexplanatory
    var mapOptions = {
-     zoom: 2,
+     zoom: 3,
      center: myLatlng,
      mapTypeId: google.maps.MapTypeId.ROADMAP
    };
@@ -29,19 +29,28 @@ navigator.geolocation.getCurrentPosition(function(data) {
 
    // Attach a map to the DOM Element, with the defined settings
    var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-  socket.on('stream', function(data){
-    console.log(data.lat, data.lng);
-    var marker = new google.maps.Marker({
-      map: map,
-      draggable:false,
-      optimized: false, 
-      position: {lat: data.lat, lng: data.lng},
-      animation:google.maps.Animation.BOUNCE, 
-      icon: icon
-    });
-    marker.setMap(map);
-  });
-  
+   socket.on('stream', function(data) {
+     console.log(data.lat, data.lng);
+     var marker = new google.maps.Marker({
+       map: map,
+       draggable:false,
+       optimized: false, 
+       position: {lat: data.lat, lng: data.lng},
+       animation:google.maps.Animation.BOUNCE, 
+       icon: icon
+     });
+     marker.setMap(map);
+
+     var content = "<p class=\"content\"><b>" + data.venueName + "</b></p><p class=\"content\">" + data.address + "</p>";
+
+     var infowindow = new google.maps.InfoWindow({
+      content: content
+     });
+
+     marker.addListener('click', function() {
+       infowindow.open(marker.get('map'), marker);
+     });
+   });
  }
 });
 
