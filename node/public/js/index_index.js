@@ -57,8 +57,8 @@ socket.on('stream', function(data){
 navigator.geolocation.getCurrentPosition(function(data) {
  var lat = data['coords']['latitude'];
  var lng = data['coords']['longitude'];
- var lat1 = 37.5665; 
- var lng1 =  126.9780; 
+ //var lat = 37.5665; 
+ //var lng =  126.9780; 
  console.log(document.getElementById('googleMap')); 
   if (document.getElementById('googleMap')){
     // Coordinates to center the map
@@ -119,5 +119,5 @@ navigator.geolocation.getCurrentPosition(function(data) {
   //     map.addLayer(marker);
   //   }
   // })
-})
+})*/
 // if HTML DOM Element that contains the map is found...
