@@ -13,7 +13,7 @@ var swarmUrl,
     venueName,
     address;
 
-var token = "1N5UGBL211K2VR5T2AFW0J0V4H5UWZPOUO4BFLPTSP1ENWPZ";
+var token = "FLEMNTIHO1BBZ4XJ3N52MH0WDV2D5SAJPVMCZ0TEHYX5VKGH";
 
 module.exports = function (io) {
   var T = new Twit({
