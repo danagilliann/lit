@@ -21,12 +21,13 @@ var config = {
 // } else {
 //   doAuthRedirect();
 // }
-var socket = io.connect();
+/*var socket = io.connect();
 socket.on('stream', function(data){
   if (data.lat !== undefined && data.lng !== undefined) {
     //$('body').append('<div>'+data.lat+ ','+ data.lng+'</div>');
     var lat = data.lat; 
     var lng = data.lng; 
+     console.log(document.getElementById('googleMap')); 
       if (document.getElementById('googleMap')){
         // Coordinates to center the map
         var myLatlng = new google.maps.LatLng(lat,lng);
@@ -48,20 +49,20 @@ socket.on('stream', function(data){
           icon: "http://i.giphy.com/l4hLMJmP13XqnUpNe.gif"
           });
         marker.setMap(map);
-    }//if */
-  }//if
-});
+    }
+  }
+});*/
 
 /* HTML 5 geolocation. */
-/*navigator.geolocation.getCurrentPosition(function(data) {
- // var lat = data['coords']['latitude'];
- // var lng = data['coords']['longitude'];
-  var lat = 37.5665; 
-  var lng =  126.9780; 
+navigator.geolocation.getCurrentPosition(function(data) {
+ var lat = data['coords']['latitude'];
+ var lng = data['coords']['longitude'];
+ var lat1 = 37.5665; 
+ var lng1 =  126.9780; 
+ console.log(document.getElementById('googleMap')); 
   if (document.getElementById('googleMap')){
     // Coordinates to center the map
     var myLatlng = new google.maps.LatLng(lat,lng);
- 
     // Other options for the map, pretty much selfexplanatory
     var mapOptions = {
         zoom: 14,
@@ -79,7 +80,7 @@ socket.on('stream', function(data){
       icon: "http://i.giphy.com/l4hLMJmP13XqnUpNe.gif"
       });
     marker.setMap(map);
-}//if */
+}
   // /* Create map. */
   // var map = new L.Map('map_canvas')
   //   .setView(new L.LatLng(lat, lng), 15);
@@ -118,5 +119,5 @@ socket.on('stream', function(data){
   //     map.addLayer(marker);
   //   }
   // })
-//}); 
+})
 // if HTML DOM Element that contains the map is found...

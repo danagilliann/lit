@@ -13,6 +13,7 @@ var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);  //pass a http.Server instance
 app.io = io;
+app.disable('etag');
 
 var routes = require('./routes/index')(io);
 var users = require('./routes/users');
@@ -60,6 +61,10 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+});
+app.get('/*', function(req, res, next){ 
+  res.setHeader('Last-Modified', (new Date()).toUTCString());
+  next(); 
 });
 
 
