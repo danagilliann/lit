@@ -24,9 +24,28 @@ var config = {
 
 /* HTML 5 geolocation. */
 navigator.geolocation.getCurrentPosition(function(data) {
-  console.log(data);
-  // var lat = data['coords']['latitude'];
-  // var lng = data['coords']['longitude'];
+ // var lat = data['coords']['latitude'];
+ // var lng = data['coords']['longitude'];
+  var lat = 37.5665; 
+  var lng =  126.9780; 
+  if (document.getElementById('googleMap')){
+    // Coordinates to center the map
+    var myLatlng = new google.maps.LatLng(lat,lng);
+ 
+    // Other options for the map, pretty much selfexplanatory
+    var mapOptions = {
+        zoom: 14,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    // Attach a map to the DOM Element, with the defined settings
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+    var marker=new google.maps.Marker({
+      position:myLatlng,
+      animation:google.maps.Animation.BOUNCE
+      });
+    marker.setMap(map);
+}
   // /* Create map. */
   // var map = new L.Map('map_canvas')
   //   .setView(new L.LatLng(lat, lng), 15);
@@ -66,3 +85,4 @@ navigator.geolocation.getCurrentPosition(function(data) {
   //   }
   // })
 })
+// if HTML DOM Element that contains the map is found...
