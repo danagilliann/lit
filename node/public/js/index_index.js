@@ -41,10 +41,15 @@ navigator.geolocation.getCurrentPosition(function(data) {
     // Attach a map to the DOM Element, with the defined settings
     var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
     var marker=new google.maps.Marker({
+      map: map,
+      draggable:false,
+      optimized: false, 
       position:myLatlng,
-      animation:google.maps.Animation.BOUNCE
+      animation:google.maps.Animation.BOUNCE, 
+      icon: "http://i.giphy.com/l4hLMJmP13XqnUpNe.gif"
       });
     marker.setMap(map);
+
 }
   // /* Create map. */
   // var map = new L.Map('map_canvas')
