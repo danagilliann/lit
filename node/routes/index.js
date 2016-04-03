@@ -11,7 +11,7 @@ var swarmUrl,
     city,
     stream;
 
-var token = "1N5UGBL211K2VR5T2AFW0J0V4H5UWZPOUO4BFLPTSP1ENWPZ";
+var token = "FLEMNTIHO1BBZ4XJ3N52MH0WDV2D5SAJPVMCZ0TEHYX5VKGH";
 
 module.exports = function (io) {
   var T = new Twit({
@@ -59,7 +59,7 @@ module.exports = function (io) {
               //   console.log(city);
               //   console.log(lat + ", " + lng); // Print the json response
               // }
-              // console.log(lat + ", " + lng);
+              console.log(lat + ", " + lng);
             }
           });
         }
@@ -67,7 +67,7 @@ module.exports = function (io) {
       // if (city === "New York" && city === "USA") {
       //   socket.emit('stream', {lat: lat, lng: lng});
       // }
-      // socket.emit('stream', {lat: lat, lng: lng});
+      socket.emit('stream', {lat: lat, lng: lng});
     });
     
     stream.on('error', function(err) {

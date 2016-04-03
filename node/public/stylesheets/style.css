@@ -11,16 +11,75 @@ body {
   height: 90%;
   margin: 0;
   padding: 0;
+  background-color: black;
+}
+
+button {
+  border: white 2px solid;
+  background: transparent;
+  color: white;
+}
+
+button.about {
+  position: absolute;
+  z-index: 10000;
+  float: right;
+  right: 2%;
+  z-index: 10000;
+  padding: 0.7em 2em;
+  font: 13px "Inconsolata", "Sans-Serif";
+  margin-top: -0.5em
 }
 
 header {
   background-color: black;
-  margin-bottom: -0.65em;
-  padding: 1em;
+  padding: 0.1em;
+}
+
+a:link,
+a:visited,
+a:link:active,
+a:visited:active,
+a:hover {
+  color: #e9948c;
+  text-decoration: none;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
   color: white;
-  font: 100% 'Inconsolata', Sans-Serif;
+  padding-left: 0.5em;
+  font: 1.5em 'Inconsolata', Sans-Serif;
+  margin-bottom: 1em;
 }
+
+button.close:hover {
+  color: white;
+}
+
+button.close {
+  color: white;
+}
+
+h4 {
+  font: 2em 'Inconsolata', Sans-Serif;
+  text-align: center;
+  color: #e9948c;
+}
+
+p {
+  font: 1em 'Inconsolata', Sans-Serif;
+  color: white;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: black;
+}
+
+.modal {
+  top: 30%;
+}
+

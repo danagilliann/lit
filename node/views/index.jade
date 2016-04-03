@@ -1,14 +1,32 @@
 head
   title LIT
-  script#jquery(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', type='text/javascript')
+  link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   script(src='http://maps.googleapis.com/maps/api/js?key=\AIzaSyDJq401SuPortgPDVZ4BPXssc1I-YO4O04')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.ba-bbq/1.2.1/jquery.ba-bbq.min.js')
   script(src='https://cdn.socket.io/socket.io-1.4.5.js')
   script(src='js/index_index.js')
   link(rel='stylesheet', type='text/css', href='stylesheets/style.css')
+
   body
+    #myModal.modal.fade(role='dialog')
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') ×
+            h4 About Lit
+            p We wanted to created something bold, revolutionary, and relevant to today's time. Thus, we created Lit. Lit visualizes check-ins from Swarm using Twitter. Tldr, we get a public tweet that has checked-in on Swarm and used it to visualize their location. Using Lit, you get to see which country, which city, or which place, is truly lit. <br><br> You can view our Github (aka the fruit of our labor), 
+              a(href="https://github.com/danagilliann/lit") here
+              span .
+              span <br><br>and yes, it's responsive.
     header
-      h1 Lit
+      h1
+        span Lit by 
+        a(href='http://danagilliann.me') Dana
+        span  and 
+        a(href='https://github.com/BigYuns') Yunny
+        button.about(data-toggle='modal', data-target='#myModal') About
+
     #googleMap
 
 
