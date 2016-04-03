@@ -35,15 +35,26 @@ stream.on('message', function(msg) {
       var foursquareRequest = "https://api.foursquare.com/v2/checkins/resolve?shortId=" + swarmUrl +"&oauth_token=1N5UGBL211K2VR5T2AFW0J0V4H5UWZPOUO4BFLPTSP1ENWPZ&v=20160402";
 
       request({
-          url: foursquareRequest,
-          json: true
+        url: foursquareRequest,
+        json: true
       }, function (error, response, body) {
       
-          if (!error && response.statusCode === 200) {
-            console.log(body.response.checkin.venue.location.lat + ", " + body.response.checkin.venue.location.lng); // Print the json response
-            venueId = body.response.checkin.venue.id;
-            console.log(venueId);
-          }
+        if (!error && response.statusCode === 200) {
+          console.log(body.response.checkin.venue.location.lat + ", " + body.response.checkin.venue.location.lng); // Print the json response
+          venueId = body.response.checkin.venue.id;
+        }
+      });
+
+      var venueRequest = "https://api.foursquare.com/v2/venues/"+ venueId +"?oauth_token=1N5UGBL211K2VR5T2AFW0J0V4H5UWZPOUO4BFLPTSP1ENWPZ&v=20160402";
+
+      request({
+        url: venueRequest,
+        json: true
+      }, function (error, response, body) {
+      
+        if (!error && response.statusCode === 200) {
+          console.log(body.response.venue.name);
+        }
       });
     }
   }
