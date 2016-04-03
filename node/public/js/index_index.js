@@ -14,10 +14,18 @@ navigator.geolocation.getCurrentPosition(function(data) {
    var myLatlng = new google.maps.LatLng(lat,lng);
    // Other options for the map, pretty much selfexplanatory
    var mapOptions = {
-     zoom: 17,
+     zoom: 2,
      center: myLatlng,
      mapTypeId: google.maps.MapTypeId.ROADMAP
    };
+
+   var icon = {
+     url: "http://i.giphy.com/3oGRFFnL5C6iZEfI9W.gif",
+     size: new google.maps.Size(20, 20),
+     origin: new google.maps.Point(0, 0),
+     anchor: new google.maps.Point(0, 32)
+   };
+
    // Attach a map to the DOM Element, with the defined settings
    var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
   socket.on('stream', function(data){
@@ -28,7 +36,7 @@ navigator.geolocation.getCurrentPosition(function(data) {
       optimized: false, 
       position: {lat: data.lat, lng: data.lng},
       animation:google.maps.Animation.BOUNCE, 
-      icon: "http://i.giphy.com/l4hLMJmP13XqnUpNe.gif"
+      icon: icon
     });
     marker.setMap(map);
   });
