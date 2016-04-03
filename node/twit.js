@@ -19,7 +19,7 @@ var T = new Twit({
 var stream = T.stream("statuses/filter", { track: 'swarmapp', language: 'en'});
 
 stream.on('message', function(msg) {
-  if (msg.entities.urls[0] !== undefined && msg.entities.urls[1].display_url !== undefined) {
+  if (msg.entities.urls[0] !== undefined && msg.entities.urls[0].display_url !== undefined) {
     swarm_url = msg.entities.urls[0].display_url;
     swarm_url = swarm_url.split("/");
     swarm_url = swarm_url[2];
